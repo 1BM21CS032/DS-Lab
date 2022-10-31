@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void input(int *n1, int *n2){
+    printf ("Enter the 2 numbers:\n");
+    scanf ("%d %d", n1, n2);
+}
+void math (int *n1, int *n2, float *r[4]){
+    r[0]=*n1+*n2;
+    r[1]=*n1-*n2;
+    r[2]=*n1*(*n2);
+    r[3]=*n1/(*n2);
+}
+void output (int *a[4]){
+    for (int i=0; i<4; i++)
+        printf ("result=%d\n",a[i]);
+}
+
+int main (){
+
+    int a, b;
+    float result[4];
+    input (&a, &b);
+    math (&a, &b, &result);
+    output (&result);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student{
+    int phone;
+    char *USN;
+    char *name;
+};
+
+int allocater (char *alloc){
+    alloc = (char *)malloc(sizeof(char)*10);
+    return alloc;
+}
+struct student input (struct student *data){
+    printf ("Enter name, USN and phone number:\n");
+    scanf ("%s %s %d", data->name, data->USN, &data->phone);
+};
+
+void output (struct student *data){
+    printf ("Name:%s\nUSN:%s\nPhone number:%d", data->name, data->USN, data->phone);
+};
+
+int main()
+{
+    struct student stud;
+    stud.USN = allocater (stud.USN);
+    stud.name = allocater (stud.name);
+    input (&stud);
+    output (&stud);
+
+    return 0;
+}

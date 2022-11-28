@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<string.h>
+
+#define size 5
+
+int top=-1;
+char stack[size];
+
+void push(char value)
+{
+ stack[++top]=value;
+}
+char pop()
+{
+ return(stack[top--]);
+}
+void check (char exp[]){
+        int i;
+        char temp;
+        for (i=0; i<strlen(exp);i++){
+
+            if (exp[i]=='(' || exp[i]=='{' || exp[i]=='[')
+            push(exp[i]);
+
+            if (exp[i]==')' || exp[i]=='}' || exp[i]==']'){
+                if(top==-1)
+                printf ("false\n");
+
+                else{
+                    temp==pop();
+                }
+
+            }
+
+        }
+        if (top==-1)
+        printf ("Balanced paranthesis\n");
+        else
+        printf ("Unbalanced\n");
+}
+
+int match (char a, char b){
+    if ((a=='(' && b== ')') || (a=='{' && b== '}') || (a=='[' && b== ']'))
+    return 1;
+    else 
+    return 0;
+}
+
+int main()
+{
+    int i=0,k=0;
+    char para[10];
+    char ch,elem;
+    
+    printf("\nInput: ");
+    scanf("%s",para);
+    check (para);
+    
+    return 0;
+    
+}

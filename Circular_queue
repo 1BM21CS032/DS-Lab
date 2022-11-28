@@ -49,7 +49,9 @@ void dequeue (){
         rear=-1;
     }
     else
-        queue[front++]=0;
+        queue[front]=0;
+        front=(front+1)%SIZE;
+
 }
 
 void display (){

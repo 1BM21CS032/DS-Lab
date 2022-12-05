@@ -30,40 +30,50 @@ void display (Node *headref){
 
 int main (){
 
-    int k=0, choice;
+    int k=0, i, choice;
 
     Node *head = NULL;
     Node *temp = (Node *)malloc(sizeof(Node));
 
-    printf ("1:Queue\t2:Stack:");
-    scanf ("%d", &choice);
+    while (1){
+        printf ("\n1:Push\n2:Display\n3:Quit\n");
+        scanf ("%d", &choice);
 
-    switch (choice)
-    {
-    case 1:for (int i=0; i<10; i++){
+    switch (choice){
 
-        if (k==0){
-            temp = push_queue(i);
-            head = temp;
+        /*case 1:
+        for (int i=0; i<10; i++){
+
+            if (k==0){
+                temp = push_queue(i);
+                head = temp;
+            }
+            else{
+                temp->next = push_queue(i);
+                temp = temp->next;
+            }
+            k++;
         }
-        else{
-            temp->next = push_queue(i);
-            temp = temp->next;
-        }
-        k++;
-    }
-    break;
-    
-    case 2:for (int i=0; i<10; i++){
+        break;*/
+
+        case 1:printf ("Enter element to add:\n");
+        scanf ("%d",&i);
         head = push_stack (head, i);
-    }
-    break;
 
-    default:printf ("Invalid input!\n");
+        break;
+
+        case 2:display (head);
+        break;
+
+        case 3:exit(0);
+        break;
+
+        default:printf ("Invalid input!\n");
         break;
     }
-    
-    display (head);
+
+
+    }
 
     return 0;
 }
